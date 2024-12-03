@@ -1,0 +1,42 @@
+div.main {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+div.CF {
+	margin: 20px;
+	width: 50%;
+	height: 100%;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	padding: 20px;
+	text-align: center;
+}
+
+div.cercaPaese {
+	padding
+	margin: 40px;
+	width: 25%;
+	border-radius: 20px;
+	height: 100%;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+}
+
+div.cercaComune {
+	margin: 40px;
+	width: 25%;
+	height: 100%;
+	background-color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+	text-align: center;
+	padding: 20px;
+}
