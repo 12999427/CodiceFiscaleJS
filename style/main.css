@@ -17,7 +17,7 @@ div.CF {
 	text-align: center;
 }
 
-div.cercaPaese {
+div.cerca_paese_css {
 	margin: 40px;
 	width: 25%;
 	border-radius: 20px;
@@ -29,7 +29,7 @@ div.cercaPaese {
 	padding: 20px;
 }
 
-div.cercaComune {
+div.cerca_comune_css {
 	margin: 40px;
 	width: 25%;
 	height: 100%;
@@ -47,4 +47,70 @@ div.cercaComune {
 .spaziatura {
 	margin-bottom: 10px;
 	margin-top: 10px;
+}
+
+#div_grafica {
+	margin: 40px;
+	border: 4px solid green;
+	border-radius: 20px;
+	height: 350px;
+	width: 600px;
+}
+
+.CF {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-items: center;
+}
+
+#div_laterale {
+	display: block;
+	text-align: left;
+	padding-left: 20px;
+}
+
+#div_superiore {
+	display: flex;
+	flex-direction: row;
+	background-color: green;
+	width: 100%;
+	height: 26%;
+	padding: 5px;
+	padding-top: 8px;
+	box-sizing: border-box;
+	border-radius: 13px 13px 0px 0px;
+	color: white;
+	font-size: 1.2em;
+}
+
+.img_logo {
+	width: 80px;
+	height: 80px;
+}
+
+form {
+	padding: 20px;
+	text-align: left;
+	line-height: 38px;
+}
+
+label {
+	color: green;
+	text-transform: uppercase;
+	text-decoration: underline;
+	font-size: 0.85em;
+	padding-right: 10px;
+}
+
+input[type='text'] {
+	font-size: 1em;
+}
+
+.div_CF_float {
+	float:right;
+}
+
+.italic {
+	font-style: italic;
 }

@@ -1,9 +1,9 @@
 //import { codiciPaesi, valoriMesi, vocali, codiciComuni, checkDispari } from "./dati.js";
 
-let err = "";
+let err;
 
 function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschio, luogoNascita, siglaProvincia, bNatoItalia, paeseStraniero) {
-
+    err = "";
     nome = "Giancarlo";
     cognome = "Peruzzi";
     annoNascita = 1963;

@@ -17,29 +17,76 @@
         </h1>
     </header>
     <div class="main">
-    	<div class="cercaPaese" id="div_paese">
-            <input class="spaziatura" type="file" id="filepaese" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
+    	<div class="cerca_paese_css" id="paese">
+            <input class="spaziatura" type="file" id="file_paese" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
             <br>
             <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
-            <br>
+            <br><br>
             Cerca paese:
-            <input class="spaziatura" type="text" id="paese" placeholder="Cerca paese" oninput="cerca(this.parentElement)">
-            <br>
-            <div class="spaziatura" id="risultati_div_paese"></div>
+            <input class="spaziatura" type="text" id="cerca_paese" placeholder="Cerca paese" oninput="cerca(this.parentElement)">
+            <br><br>
+            <div class="spaziatura" id="risultati_paese"></div>
+            <button onclick="document.getElementById('CF_paese').value = 'ITALIA'">Imposta ITALIA</button>
     	</div>
-    	<div class="cercaComune" id="div_comune">
-            <input class="spaziatura" type="file" id="filecomune" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
+    	<div class="cerca_comune_css" id="comune">
+            <input class="spaziatura" type="file" id="file_comune" value="Sovrascrivi Database Comuni" onchange="carica(this.parentElement)">
             <br>
             <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
-            <br>
+            <br><br>
             Cerca comune:
-            <input class="spaziatura" type="text" id="comune" placeholder="Cerca comune" oninput="cerca(this.parentElement)">
-            <br>
-            <div class="spaziatura" id="risultati_div_comune"></div>
+            <input class="spaziatura" type="text" id="cerca_comune" placeholder="Cerca comune" oninput="cerca(this.parentElement)">
+            <br><br>
+            <div class="spaziatura" id="risultati_comune"></div>
     	</div>
     	<div class="CF">
-            ciao
-            <button onclick="genera()">Genera!</button>
+            <h2>
+                GENERATORE CODICE FISCALE
+            </h2>
+            <div id="div_grafica">
+                <div id="div_superiore">
+                    <div id="div_img">
+                        <img src="img/logo.png" class="img_logo">
+                    </div>
+                    <div id="div_laterale">
+                        REPUBBLICA ITALIANA : &#41
+                        <br><br>
+                        MINISTERO DELLE FINANZE
+                    </div>
+                </div>
+                <form>
+                    <label for="CF_CF">Codice Fiscale</label>
+                    <input type="text" id="CF_CF" disabled>
+                    <br>
+                    <br>
+                    <div class="div_CF_float">
+                        <label for="CF_sesso">Sesso</label>
+                        <select id="CF_sesso" oninput="genera_codice()">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+                    </div>
+                    <label for="CF_nome">Nome</label>
+                    <input type="text" id="CF_nome" oninput="genera_codice()">
+                    <br>
+                    <div class="div_CF_float">
+                        <label for="CF_data">Data di nascita</label>
+                        <input id="CF_data" type="date" oninput="genera_codice()">
+                    </div>
+                    <label for="CF_cognome">Cognome</label>
+                    <input type="text" id="CF_cognome" oninput="genera_codice()">
+                    <br>
+                    <label for="selettore_estero">
+                        Nato in italia o in un paese staniero: 
+                    </label>
+                    <input type="radio" name="estero" value="Italia" id="estero_italia" checked oninput="luogo()">
+                    <label class="italic" for="estero_italia">ITALIA</label>
+                    <input type="radio" name="estero" value="Straniero" id="estero_straniero" oninput="luogo()">
+                    <label class="italic" for="estero_straniero">PAESE STRANIERO</label>
+                    <br>
+                    <label for="CF_luogo" id="CF_luogo_label">Comune</label>
+                    <input type="text" id="CF_luogo" oninput="genera_codice()">
+                </form>
+            </div>
     	</div>
     </div>
 </body>
