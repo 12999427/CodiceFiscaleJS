@@ -7,6 +7,7 @@
         <meta charset="UTF-8">
         <script src="script/dati.js"></script>
         <script src="script/main.js"></script>
+        <script src="script/generator.js"></script>
         <link rel="stylesheet" href="style/main.css">
     </head>
 <body>
@@ -16,20 +17,30 @@
         </h1>
     </header>
     <div class="main">
-    	<div class="cercaPaese">
-    	Cerca paese:
-    	<input type="text" id="paese" placeholder="Cerca paese">
-    	<button onclick="cerca('paese')">Cerca</button>
+    	<div class="cercaPaese" id="div_paese">
+            <input class="spaziatura" type="file" id="filepaese" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
+            <br>
+            <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
+            <br>
+            Cerca paese:
+            <input class="spaziatura" type="text" id="paese" placeholder="Cerca paese" oninput="cerca(this.parentElement)">
+            <br>
+            <div class="spaziatura" id="risultati_div_paese"></div>
     	</div>
-    	<div class="cercaComune">
-    	Cerca comune:
-    	<input type="text" id="comune" placeholder="Cerca comune">
-    	<button onclick="cerca('comune')">Cerca</button>
+    	<div class="cercaComune" id="div_comune">
+            <input class="spaziatura" type="file" id="filecomune" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
+            <br>
+            <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
+            <br>
+            Cerca comune:
+            <input class="spaziatura" type="text" id="comune" placeholder="Cerca comune" oninput="cerca(this.parentElement)">
+            <br>
+            <div class="spaziatura" id="risultati_div_comune"></div>
     	</div>
     	<div class="CF">
-    	ciao
+            ciao
+            <button onclick="genera()">Genera!</button>
     	</div>
     </div>
-    <button onclick="genera()">Genera!</button>
 </body>
 </html>
