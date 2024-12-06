@@ -2,9 +2,9 @@
 
 let err;
 
-function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschio, luogoNascita, siglaProvincia, bNatoItalia, paeseStraniero) {
+function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschio, cittaNascita, bNatoItalia, paeseStraniero) {
     err = "";
-    nome = "Giancarlo";
+    /*nome = "Giancarlo";
     cognome = "Peruzzi";
     annoNascita = 1963;
     meseNascita = 8;
@@ -12,21 +12,19 @@ function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschi
     bMaschio = true;
     luogoNascita = "Valdagno";
     siglaProvincia = "VI";
-    bNatoItalia = true;
+    bNatoItalia = true;*/
 
     nome = nome.toUpperCase();
     cognome = cognome.toUpperCase();
-    luogoNascita = luogoNascita.toUpperCase();
-    siglaProvincia = siglaProvincia.toUpperCase();
+    cittaNascita = cittaNascita.toUpperCase();
 
     let out = calcolaCognome(cognome);
     out += calcolaNome(nome);
     out += calcolaAnno(annoNascita);
     out += calcolaMese(meseNascita);
     out += calcolaGiornoESesso(giornoNascita, bMaschio, meseNascita, annoNascita);
-    out += calcolaCitta(luogoNascita, siglaProvincia, bNatoItalia, paeseStraniero);
+    out += calcolaCitta(cittaNascita, bNatoItalia, paeseStraniero);
     out += calcolaCheck(out);
-    alert(out);
     return (out);
 }
 
@@ -134,7 +132,7 @@ function dataValida(giorno, mese, anno) {
     );
 }
 
-function calcolaCitta (luogoNascita, siglaProvincia, bNatoItalia, paeseStraniero) {
+function calcolaCitta (cittaNascita, bNatoItalia, paeseStraniero) {
     if (!bNatoItalia) {
         let codicePaese = codiciPaesi.get(paeseStraniero);
         if (codicePaese != undefined) {
@@ -143,7 +141,7 @@ function calcolaCitta (luogoNascita, siglaProvincia, bNatoItalia, paeseStraniero
             err += "\nPaese invalido";
         }
     } else {
-        let codiceComune = codiciComuni.get(siglaProvincia + " " + luogoNascita);
+        let codiceComune = codiciComuni.get(cittaNascita);
         if (codiceComune != undefined) {
             return (codiceComune);
         } else {

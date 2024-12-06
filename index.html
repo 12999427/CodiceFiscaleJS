@@ -75,12 +75,10 @@
                     <label for="CF_cognome">Cognome</label>
                     <input type="text" id="CF_cognome" oninput="genera_codice()">
                     <br>
-                    <label for="selettore_estero">
-                        Nato in italia o in un paese staniero: 
-                    </label>
-                    <input type="radio" name="estero" value="Italia" id="estero_italia" checked oninput="luogo()">
+                    Nato in italia o in un paese staniero:
+                    <input type="radio" name="estero" value="Italia" id="estero_italia" checked oninput="luogo(true)">
                     <label class="italic" for="estero_italia">ITALIA</label>
-                    <input type="radio" name="estero" value="Straniero" id="estero_straniero" oninput="luogo()">
+                    <input type="radio" name="estero" value="Straniero" id="estero_straniero" oninput="luogo(true)">
                     <label class="italic" for="estero_straniero">PAESE STRANIERO</label>
                     <br>
                     <label for="CF_luogo" id="CF_luogo_label">Comune</label>
