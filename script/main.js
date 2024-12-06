@@ -1,3 +1,6 @@
+let paesiOverwritten = false;
+let comuniOverwritten = false; //per i diversi formati
+
 function cerca (div) {
     let list;
     let container;
@@ -19,7 +22,7 @@ function cerca (div) {
         if (valore.includes(input.value.toUpperCase())) {
 
             let contained = document.createElement("div");
-            let text_content = div.id=="comune" ? valore.substring(valore.indexOf(" ")+1, valore.length) + " " : valore;
+            let text_content = div.id=="comune" && !comuniOverwritten ? valore.substring(valore.indexOf(" ")+1, valore.length) + " " : valore;
             text_content = document.createTextNode(text_content);
             contained.appendChild(text_content);
             let puls = document.createElement("button");
@@ -40,8 +43,37 @@ function cerca (div) {
     });
 }
 
-function carica (div) {
+function carica (div, obj) {
+    let file = obj.files[0];
+    if (file) {
 
+        if (div.id=="comune") {
+            codiciComuni = new Map();
+            comuniOverwritten = true;
+        } else if (div.id=="paese") {
+            codiciPaesi = new Map();
+            paesiOverwritten = true;
+        }
+
+        let reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = function ()  {
+            let contenuto = reader.result;
+
+            contenuto.split("\r\n").forEach ( (elemento) => {
+                let key = elemento.split(";")[0];
+                let val = elemento.split(";")[1];
+
+                if (div.id=="comune") {
+                    codiciComuni.set(key, val);
+                } else if (div.id=="paese") {
+                    codiciPaesi.set(key, val);
+                }
+                console.log(key + "->" + val);
+            });
+            cerca(div);
+        }
+    }
 }
 
 function genera_codice () {

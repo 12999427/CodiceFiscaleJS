@@ -18,9 +18,12 @@
     </header>
     <div class="main">
     	<div class="cerca_paese_css" id="paese">
-            <input class="spaziatura" type="file" id="file_paese" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement)">
+            <input class="spaziatura" type="file" id="file_paese" value="Sovrascrivi Database Paesi" onchange="carica(this.parentElement, this)">
             <br>
-            <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
+            <span class="avviso spaziatura">Carica file in formato NOME ; CODICE
+                <br>
+                Nota: la prof x ora non ci ha dato questi dati quindi quindi lho testato con un file di esempio su /doc/lista-paesi-test.txt
+            </span>
             <br><br>
             Cerca paese:
             <input class="spaziatura" type="text" id="cerca_paese" placeholder="Cerca paese" oninput="cerca(this.parentElement)">
@@ -29,7 +32,7 @@
             <button onclick="document.getElementById('CF_paese').value = 'ITALIA'">Imposta ITALIA</button>
     	</div>
     	<div class="cerca_comune_css" id="comune">
-            <input class="spaziatura" type="file" id="file_comune" value="Sovrascrivi Database Comuni" onchange="carica(this.parentElement)">
+            <input class="spaziatura" type="file" id="file_comune" value="Sovrascrivi Database Comuni" onchange="carica(this.parentElement, this)">
             <br>
             <span class="avviso spaziatura">Carica file in formato NOME ; CODICE</span>
             <br><br>

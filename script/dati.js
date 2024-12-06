@@ -40,7 +40,7 @@ const checkDispari = new Map([
 ]);
 
 
-const codiciPaesi = new Map([
+let codiciPaesi = new Map([
     ["AFGHANISTAN", "AFG"],
     ["ALBANIA", "ALB"],
     ["ALGERIA", "DZA"],
@@ -143,7 +143,7 @@ const codiciPaesi = new Map([
     ["ISLANDA", "ISL"],
     ["ISOLE VERGINI", "VIR"],
     ["ISRAELE", "ISR"],
-    ["ITALIA", "ITA"],
+    //["ITALIA", "ITA"], mica xe un paese straniero, va la sintassi normale coi comuni
     ["JUGOSLAVIA (SERBIA - MONTENEGRO)", "YUG"],
     ["KAZAKISTAN", "KAZ"],
     ["KENIA", "KEN"],
@@ -272,7 +272,7 @@ const codiciPaesi = new Map([
     ["ZIMBABWE", "ZWE"]
 ]);
 
-const codiciComuni = new Map([
+let codiciComuni = new Map([
     ["PD ABANO TERME", "A001"],
     ["LO ABBADIA CERRETO", "A004"],
     ["LC ABBADIA LARIANA", "A005"],

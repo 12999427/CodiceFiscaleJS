@@ -4,15 +4,6 @@ let err;
 
 function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschio, cittaNascita, bNatoItalia, paeseStraniero) {
     err = "";
-    /*nome = "Giancarlo";
-    cognome = "Peruzzi";
-    annoNascita = 1963;
-    meseNascita = 8;
-    giornoNascita = 31;
-    bMaschio = true;
-    luogoNascita = "Valdagno";
-    siglaProvincia = "VI";
-    bNatoItalia = true;*/
 
     nome = nome.toUpperCase();
     cognome = cognome.toUpperCase();
