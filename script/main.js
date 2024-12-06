@@ -31,7 +31,7 @@ function cerca (div) {
                                         div.id == "paese" && element.value == "Straniero";
                 });
             };
-            luogo();
+            luogo(false);
 
             contained.appendChild(puls);
             document.getElementById("risultati_" + div.id).appendChild(contained);
@@ -55,8 +55,11 @@ function genera_codice () {
     document.getElementById("CF_CF").value = genera();
 }
 
-function luogo () {
+function luogo (reset) {
     document.getElementById("CF_luogo_label").innerText =
         document.querySelector("input[name='estero']:checked").value=="Italia" ? 
         "Comune" : "Paese";
+    if (reset) {
+        document.getElementById("CF_luogo").value = "";
+    }
 }
