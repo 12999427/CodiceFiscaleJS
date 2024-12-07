@@ -34,8 +34,8 @@ function cerca (div) {
                                         div.id == "paese" && element.value == "Straniero";
                 });
                 genera_codice();
+                luogo(false);
             };
-            luogo(false);
 
             contained.appendChild(puls);
             document.getElementById("risultati_" + div.id).appendChild(contained);
