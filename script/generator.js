@@ -43,11 +43,15 @@ function calcolaCognome (cognome) {
     if (output.length == 3) {
         return output;
     } else {
-        for (let i = 0; i<(3-output.length); i++) {
-            output += "X";
-        }
-        return output;
+        return riempiConZ(output, 3);
     }
+}
+
+function riempiConZ (txt, len) {
+    for (let i = 0; i<(len-txt.length); i++) {
+        txt += "X";
+    }
+    return txt;
 }
 
 function calcolaNome (nome) {
@@ -70,11 +74,7 @@ function calcolaNome (nome) {
                 output += lettera;
             }
         }
-        if (output.length != 3) {
-            for (let i = 0; i<(3-output.length); i++) {
-                output += "X";
-            }
-        }
+        output = riempiConZ(output, 3);
     } else {
         let saltaCons = true;
         for (let lettera of nome) {
