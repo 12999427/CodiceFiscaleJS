@@ -21,10 +21,12 @@ function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschi
 
 function calcolaCognome (cognome) {
     output = "";
+    if (cognome.length <= 0) { err += "\nLunghezza cognome"; return; }
     for (let lettera of cognome) {
         let ascii = lettera.charCodeAt(0);
         if (ascii>90 || ascii<65) {
             err += "\nCaratteri invalidi nel cognome";
+            return;
         } else {
             if (!vocali.includes(ascii) && output.length < 3) {
                 output += lettera;
@@ -43,11 +45,11 @@ function calcolaCognome (cognome) {
     if (output.length == 3) {
         return output;
     } else {
-        return riempiConZ(output, 3);
+        return riempiConX(output, 3);
     }
 }
 
-function riempiConZ (txt, len) {
+function riempiConX (txt, len) {
     for (let i = 0; i<(len-txt.length); i++) {
         txt += "X";
     }
@@ -56,11 +58,13 @@ function riempiConZ (txt, len) {
 
 function calcolaNome (nome) {
     output = "";
+    if (nome.length <= 0) { err += "\nLunghezza cognome"; return; }
     let numCons = 0;
     for (let lettera of nome) {
         let ascii = lettera.charCodeAt(0);
         if (ascii>90 || ascii<65) {
             err += "\nCaratteri invalidi nel nome";
+            return;
         } else {
             if (!vocali.includes(ascii)) {
                 numCons++;
@@ -74,7 +78,7 @@ function calcolaNome (nome) {
                 output += lettera;
             }
         }
-        output = riempiConZ(output, 3);
+        output = riempiConX(output, 3);
     } else {
         let saltaCons = true;
         for (let lettera of nome) {
@@ -94,12 +98,14 @@ function calcolaAnno (anno) {
         return ((anno%100)<10 ? "0" + (anno%100).toString() : anno%100); //nel caso la parte dell'anno del CF sia solo una cifra
     } else {
         err += "\nAnno incorretto";
+        return;
     }
 }
 
 function calcolaMese (mese) {
     if (mese>12 || mese<0) {
         err += "\nMese incorretto";
+        return;
     }
     return valoriMesi[mese-1];
 }
@@ -109,6 +115,7 @@ function calcolaGiornoESesso (giorno, bMaschio, mese, anno) {
         return ((bMaschio ? 0 : 40) + giorno);
     } else {
         err += "\nGiorno incorretto";
+        return;
     }
 }
 
@@ -130,6 +137,7 @@ function calcolaCitta (cittaNascita, bNatoItalia, paeseStraniero) {
             return ("Z" + codicePaese);
         } else {
             err += "\nPaese invalido";
+            return;
         }
     } else {
         let codiceComune = codiciComuni.get(cittaNascita);
@@ -137,6 +145,7 @@ function calcolaCitta (cittaNascita, bNatoItalia, paeseStraniero) {
             return (codiceComune);
         } else {
             err += "\nComune o provincia invalidi";
+            return;
         }
     }
 }

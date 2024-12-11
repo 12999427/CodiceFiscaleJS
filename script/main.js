@@ -87,6 +87,7 @@ function genera_codice () {
     let luogoNascita = document.getElementById("CF_luogo").value;
     let codice = genera(nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschio, luogoNascita, bNatoInItalia, luogoNascita);
     document.getElementById("CF_CF").value = err!="" ? "//" : codice;
+    if (err!="") {console.log(err);}
 }
 
 function luogo (reset) {
