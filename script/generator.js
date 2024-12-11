@@ -21,7 +21,7 @@ function genera (nome, cognome, annoNascita, meseNascita, giornoNascita, bMaschi
 
 function calcolaCognome (cognome) {
     output = "";
-    if (cognome.length <= 0) { err += "\nLunghezza cognome"; return; }
+    if (cognome.length <= 1) { err += "\nLunghezza cognome"; return; }
     for (let lettera of cognome) {
         let ascii = lettera.charCodeAt(0);
         if (ascii>90 || ascii<65) {
@@ -50,7 +50,7 @@ function calcolaCognome (cognome) {
 }
 
 function riempiConX (txt, len) {
-    for (let i = 0; i<(len-txt.length); i++) {
+    for (let i = txt.length; i < len; i++) { //for (let i = 0; i<(len-txt.length); i++) {
         txt += "X";
     }
     return txt;
@@ -58,7 +58,7 @@ function riempiConX (txt, len) {
 
 function calcolaNome (nome) {
     output = "";
-    if (nome.length <= 0) { err += "\nLunghezza cognome"; return; }
+    if (nome.length <= 1) { err += "\nLunghezza cognome"; return; }
     let numCons = 0;
     for (let lettera of nome) {
         let ascii = lettera.charCodeAt(0);
@@ -75,7 +75,15 @@ function calcolaNome (nome) {
         for (let lettera of nome) {
             let ascii = lettera.charCodeAt(0);
             if (!vocali.includes(ascii)) {
-                output += lettera;
+                output += lettera; //se è una consonte
+            }
+        }
+        if (output.length != 3) {
+            for (let lettera of nome) {
+                let ascii = lettera.charCodeAt(0);
+                if (numCons <= output.length && vocali.includes(ascii)) {
+                    output += lettera; //se le consonanti sono finite
+                }
             }
         }
         output = riempiConX(output, 3);
