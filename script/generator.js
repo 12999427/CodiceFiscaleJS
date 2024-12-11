@@ -81,7 +81,7 @@ function calcolaNome (nome) {
         if (output.length != 3) {
             for (let lettera of nome) {
                 let ascii = lettera.charCodeAt(0);
-                if (numCons <= output.length && vocali.includes(ascii)) {
+                if (output.length < 3 && vocali.includes(ascii)) {
                     output += lettera; //se le consonanti sono finite
                 }
             }
@@ -103,7 +103,8 @@ function calcolaNome (nome) {
 
 function calcolaAnno (anno) {
     if (!isNaN(parseInt(anno))) {
-        return ((anno%100)<10 ? "0" + (anno%100).toString() : anno%100); //nel caso la parte dell'anno del CF sia solo una cifra
+        let output = (anno%100).toString();
+        return (output.length == 1 ? "0" + output : output); //nel caso la parte dell'anno del CF sia solo una cifra
     } else {
         err += "\nAnno incorretto";
         return;
@@ -120,7 +121,8 @@ function calcolaMese (mese) {
 
 function calcolaGiornoESesso (giorno, bMaschio, mese, anno) {
     if (dataValida(giorno, mese, anno)) {
-        return ((bMaschio ? 0 : 40) + giorno);
+        let output = ((bMaschio ? 0 : 40) + giorno).toString();
+        return (output.length == 1 ? "0" + output : output);
     } else {
         err += "\nGiorno incorretto";
         return;
